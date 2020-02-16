@@ -1,0 +1,16 @@
+name: 'Terragrunt installer'
+description: 'Install a specific version of terragrunt binary.'
+author: 'Petri Autero'
+inputs:
+  terragrunt_version:
+    description: 'Terragrunt version to install'
+    required: true
+outputs:
+  terragrunt_path:
+    description: 'Path to the terragrunt binary'
+branding:
+  icon: cloud
+  color: 'orange'
+runs:
+  using: 'node12'
+  main: 'lib/index.js'

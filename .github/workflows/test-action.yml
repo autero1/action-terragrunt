@@ -1,0 +1,63 @@
+name: Test Action
+
+on:
+  push:
+    branches:
+      - '*'
+    paths-ignore:
+      - '*.md'
+  # A pull request sent from a fork of the upstream repository could be manipulated to do harmful things.
+  # The upstream repository’s maintainer would have no protection against this attack, as pull requests
+  # can be sent by anyone who forks the repository on GitHub.
+  # This is why we don't run automated tests on every PR.
+  # pull_request:
+  #  types:
+  #    - opened
+  #    - synchronize
+  #  paths-ignore:
+  #    - '*.md'
+
+jobs:
+  skipci:
+    runs-on: ubuntu-18.04
+    steps:
+      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
+
+  test:
+    runs-on: ${{ matrix.os }}
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    strategy:
+      max-parallel: 1
+      matrix:
+        os:
+          - 'ubuntu-18.04'
+          - 'macos-latest'
+          - 'windows-latest'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
+        id: nvm
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - run: npm ci
+
+      - name: Remove lint-staged husky
+        run: |
+          npm uninstall lint-staged husky
+          git checkout package-lock.json package.json
+
+      - run: npm run build
+
+      - name: Install Terragrunt
+        uses: ./
+        with:
+          terragrunt_version: 0.21.13
+
+      - name: Validate
+        run: terragrunt --version

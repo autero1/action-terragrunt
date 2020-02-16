@@ -1,0 +1,72 @@
+{
+  "name": "action-terragrunt",
+  "version": "0.0.0",
+  "description": "GitHub action for setting up Terragrunt",
+  "author": "Petri Autero",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/tool-cache": "1.1.2",
+    "@actions/io": "^1.0.0",
+    "@actions/core": "^1.0.0",
+    "@actions/exec": "^1.0.0"
+  },
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=12.14.1",
+    "npm": ">=6.13.7"
+  },
+  "scripts": {
+    "lint": "eslint ./{src,__tests__}/**/*.ts",
+    "lint:fix": "eslint --fix ./{src,__tests__}/**/*.ts",
+    "test": "jest --coverage --verbose --detectOpenHandles",
+    "build": "ncc build ./src/index.ts -o lib",
+    "tsc": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format:check": "prettier --check **/*.ts",
+    "release": "standard-version",
+    "update-deps": "(git diff 'HEAD@{1}' --name-only | grep 'package-lock.json' > /dev/null) && npm ci || :"
+  },
+  "husky": {
+    "skipCI": true,
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-merge": "npm run update-deps; git remote prune origin"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --check",
+      "eslint"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autero1/action-terragrunt.git"
+  },
+  "keywords": [
+    "GitHub Actions",
+    "Actions",
+    "JavaScript Action",
+    "TypeScript Action",
+    "Terragrunt",
+    "Terraform"
+  ],
+  "devDependencies": {
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.1",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "got": "^10.5.5",
+    "jest": "^25.1.0",
+    "@zeit/ncc": "^0.21.0",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5",
+    "husky": "^4.2.3",
+    "jest-circus": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.7.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "1.19.1",
+    "standard-version": "^7.1.0"
+  }
+}
