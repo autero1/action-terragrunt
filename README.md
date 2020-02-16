@@ -1,5 +1,5 @@
 [![license](https://img.shields.io/github/license/autero1/action-terragrunt)](https://github.com/autero1/action-terragrunt/blob/master/LICENSE)
-[![release](https://img.shields.io/github/release/autero1/action-terragrunt)](https://github.com/autero1/action-terragrunt/releases/latest)
+[![release](https://img.shields.io/github/release/autero1/action-terragrunt.svg)](https://github.com/autero1/action-terragrunt/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/autero1/action-terragrunt.svg)](https://github.com/autero1/action-terragrunt/releases)
 ![Test Action](https://github.com/autero1/action-terragrunt/workflows/Test%20Action/badge.svg?branch=master&event=push)
 [![CodeFactor](https://www.codefactor.io/repository/github/autero1/action-terragrunt/badge)](https://www.codefactor.io/repository/github/autero1/action-terragrunt)
