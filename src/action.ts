@@ -103,6 +103,8 @@ export async function downloadTerragrunt(version: string): Promise<string> {
       path.sep
     }terragrunt${getExecutableExtension()}`;
     core.info(`[INFO] Setting file permissions 755 to: '${absExecutable}'`);
+    core.info(`[DEBUG] Stat: '${fs.statSync(dlPath)}'`);
+
     fs.chmodSync(absExecutable, '755');
 
     // Rename
