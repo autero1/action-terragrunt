@@ -32,7 +32,7 @@ export function getDownloadURL(version: string): string {
   }
 }
 
-export function getFullExecutableName(): string {
+/**export function getFullExecutableName(): string {
   switch (os.type()) {
     case 'Windows_NT':
       return `${util.format(fullExecutableFormat, 'windows')}.exe`;
@@ -44,7 +44,7 @@ export function getFullExecutableName(): string {
     default:
       return util.format(fullExecutableFormat, 'linux');
   }
-}
+}*/
 
 const walkSync = function(
   dir: string,
@@ -98,18 +98,18 @@ export async function downloadTerragrunt(version: string): Promise<string> {
     fs.chmodSync(dlPath, '777');
 
     // Make it executable
-    const absExecutable = `${dlPath}${path.sep}${getFullExecutableName()}`;
-    const newExecutable = `${dlPath}${
-      path.sep
-    }terragrunt${getExecutableExtension()}`;
-    core.info(`[INFO] Setting file permissions 755 to: '${absExecutable}'`);
-    core.info(`[DEBUG] Stat: '${fs.statSync(dlPath)}'`);
-    core.info(`[DEBUG] LS: '${fs.readdirSync(dlPath)}'`);
+    //const absExecutable = `${dlPath}${path.sep}${getFullExecutableName()}`;
+    //const newExecutable = `${dlPath}${
+    //  path.sep
+    //}terragrunt${getExecutableExtension()}`;
+    //core.info(`[INFO] Setting file permissions 755 to: '${absExecutable}'`);
+    //core.info(`[DEBUG] Stat: '${fs.statSync(dlPath)}'`);
+    //core.info(`[DEBUG] LS: '${fs.readdirSync(dlPath)}'`);
 
-    fs.chmodSync(absExecutable, '755');
+    //fs.chmodSync(absExecutable, '755');
 
     // Rename
-    fs.renameSync(absExecutable, newExecutable);
+    //fs.renameSync(absExecutable, newExecutable);
 
     // Cache the tool
     cachedToolpath = await toolCache.cacheDir(dlPath, executableName, version);
