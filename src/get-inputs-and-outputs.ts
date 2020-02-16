@@ -6,8 +6,8 @@ function showInputs(inps: Inputs): void {
 }
 
 export function getInputs(): Inputs {
-  let tgVersion = core.getInput('terragrunt_version')
-  if (!tgVersion.startsWith("v")) {
+  let tgVersion = core.getInput('terragrunt_version');
+  if (!tgVersion.startsWith('v')) {
     tgVersion = `v${tgVersion}`;
   }
   const inps: Inputs = {

@@ -7,10 +7,8 @@ import * as util from 'util';
 import {getInputs, getOutputs} from './get-inputs-and-outputs';
 
 const executableName = 'terragrunt';
-const fullExecutableFormat =
-  'terragrunt_%s_amd64';
-const downloadUrlFormat =
-  `https://github.com/gruntwork-io/terragrunt/releases/download/%s/${fullExecutableFormat}`;
+const fullExecutableFormat = 'terragrunt_%s_amd64';
+const downloadUrlFormat = `https://github.com/gruntwork-io/terragrunt/releases/download/%s/${fullExecutableFormat}`;
 
 export function getExecutableExtension(): string {
   core.info(`[INFO] OS Type: '${os.type()}'`);
@@ -91,7 +89,9 @@ export async function downloadTerragrunt(version: string): Promise<string> {
     try {
       dlPath = await toolCache.downloadTool(dlURL);
     } catch (exception) {
-      throw new Error(util.format('Failed to download Terragrunt from ', dlURL));
+      throw new Error(
+        util.format('Failed to download Terragrunt from ', dlURL)
+      );
     }
 
     // Changing temp path permissions
@@ -99,19 +99,17 @@ export async function downloadTerragrunt(version: string): Promise<string> {
 
     // Make it executable
     const absExecutable = `${dlPath}${path.sep}${getFullExecutableName()}`;
-    const newExecutable = `${dlPath}${path.sep}terragrunt${getExecutableExtension()}`;
+    const newExecutable = `${dlPath}${
+      path.sep
+    }terragrunt${getExecutableExtension()}`;
     core.info(`[INFO] Setting file permissions 755 to: '${absExecutable}'`);
     fs.chmodSync(absExecutable, '755');
 
     // Rename
-    fs.renameSync(absExecutable, newExecutable)
+    fs.renameSync(absExecutable, newExecutable);
 
     // Cache the tool
-    cachedToolpath = await toolCache.cacheDir(
-      dlPath,
-      executableName,
-      version
-    );
+    cachedToolpath = await toolCache.cacheDir(dlPath, executableName, version);
   }
 
   const executablePath = findExecutable(cachedToolpath);

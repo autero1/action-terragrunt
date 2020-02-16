@@ -6,7 +6,7 @@ jest.mock('os');
 
 async function checkHead(url: string): Promise<number> {
   // Due to funky redirects with GitHub, just making sure we get the 302 found and not follow
-  const response = await got.get(url, { followRedirect: false, });
+  const response = await got.get(url, {followRedirect: false});
   return response.statusCode;
 }
 
