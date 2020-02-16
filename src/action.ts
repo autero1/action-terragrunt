@@ -112,7 +112,7 @@ export async function downloadTerragrunt(version: string): Promise<string> {
     //fs.renameSync(absExecutable, newExecutable);
 
     // Cache the tool
-    cachedToolpath = await toolCache.cacheDir(dlPath, executableName, version);
+    cachedToolpath = await toolCache.cacheFile(dlPath, executableName + getExecutableExtension(), executableName, version);
   }
 
   const executablePath = findExecutable(cachedToolpath);
