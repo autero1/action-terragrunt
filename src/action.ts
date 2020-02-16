@@ -104,6 +104,7 @@ export async function downloadTerragrunt(version: string): Promise<string> {
     }terragrunt${getExecutableExtension()}`;
     core.info(`[INFO] Setting file permissions 755 to: '${absExecutable}'`);
     core.info(`[DEBUG] Stat: '${fs.statSync(dlPath)}'`);
+    core.info(`[DEBUG] LS: '${fs.readdirSync(dlPath)}'`);
 
     fs.chmodSync(absExecutable, '755');
 
