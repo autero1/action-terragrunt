@@ -11,7 +11,6 @@ const fullExecutableFormat = 'terragrunt_%s_amd64';
 const downloadUrlFormat = `https://github.com/gruntwork-io/terragrunt/releases/download/%s/${fullExecutableFormat}`;
 
 export function getExecutableExtension(): string {
-  core.info(`[INFO] OS Type: '${os.type()}'`);
   if (os.type().match(/^Win/)) {
     return '.exe';
   }
@@ -31,20 +30,6 @@ export function getDownloadURL(version: string): string {
       return util.format(downloadUrlFormat, version, 'linux');
   }
 }
-
-/**export function getFullExecutableName(): string {
-  switch (os.type()) {
-    case 'Windows_NT':
-      return `${util.format(fullExecutableFormat, 'windows')}.exe`;
-
-    case 'Darwin':
-      return util.format(fullExecutableFormat, 'darwin');
-
-    case 'Linux':
-    default:
-      return util.format(fullExecutableFormat, 'linux');
-  }
-}*/
 
 const walkSync = function(
   dir: string,
@@ -81,6 +66,7 @@ export function findExecutable(rootFolder: string): string {
 
 export async function downloadTerragrunt(version: string): Promise<string> {
   core.info(`[INFO] Setting up Terragrunt version: '${version}'`);
+  // See if we already have it installed
   let cachedToolpath = toolCache.find(executableName, version);
   if (!cachedToolpath) {
     let dlPath: string;
@@ -97,22 +83,13 @@ export async function downloadTerragrunt(version: string): Promise<string> {
     // Changing temp path permissions
     fs.chmodSync(dlPath, '777');
 
-    // Make it executable
-    //const absExecutable = `${dlPath}${path.sep}${getFullExecutableName()}`;
-    //const newExecutable = `${dlPath}${
-    //  path.sep
-    //}terragrunt${getExecutableExtension()}`;
-    //core.info(`[INFO] Setting file permissions 755 to: '${absExecutable}'`);
-    //core.info(`[DEBUG] Stat: '${fs.statSync(dlPath)}'`);
-    //core.info(`[DEBUG] LS: '${fs.readdirSync(dlPath)}'`);
-
-    //fs.chmodSync(absExecutable, '755');
-
-    // Rename
-    //fs.renameSync(absExecutable, newExecutable);
-
     // Cache the tool
-    cachedToolpath = await toolCache.cacheFile(dlPath, executableName + getExecutableExtension(), executableName, version);
+    cachedToolpath = await toolCache.cacheFile(
+      dlPath,
+      executableName + getExecutableExtension(),
+      executableName,
+      version
+    );
   }
 
   const executablePath = findExecutable(cachedToolpath);
