@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 # [1.0.0](https://github.com/autero1/action-terragrunt/compare/v0.1.0...v1.0.0) (2020-12-15)
 
+- Fix CVE-2020-15228 with GitHub Actions Path and Environment variables
+- Update packages to latest versions
+- Migrate @zeit/ncc to @vercel/ncc
 
 
 
