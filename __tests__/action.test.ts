@@ -42,7 +42,7 @@ describe('getDownloadURL()', () => {
   });
 
   test('get latest url', async () => {
-    const latestVersion = await getLatestVersion() || '';
+    const latestVersion = (await getLatestVersion()) || '';
     const spy = jest.spyOn(os, 'type');
     spy.mockReturnValue('Linux');
     const linuxDLUrl = getDownloadURL(latestVersion);
