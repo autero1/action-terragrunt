@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import * as toolCache from '@actions/tool-cache';
 import * as fs from 'fs';
 import * as os from 'os';
+import {Octokit, RestEndpointMethodTypes} from '@octokit/rest';
 import * as path from 'path';
 import * as util from 'util';
 import {getInputs, getOutputs} from './get-inputs-and-outputs';
@@ -30,6 +31,17 @@ export function getDownloadURL(version: string): string {
       return util.format(downloadUrlFormat, version, 'linux');
   }
 }
+
+const getLatestVersion = async (): Promise<string | null> => {
+  const octokit = new Octokit();
+
+  const latestRelease = await octokit.repos.getLatestRelease({
+    owner: 'gruntwork-io',
+    repo: 'terragrunt'
+  });
+
+  return latestRelease.data.name;
+};
 
 const walkSync = function(
   dir: string,
@@ -66,6 +78,13 @@ export function findExecutable(rootFolder: string): string {
 
 export async function downloadTerragrunt(version: string): Promise<string> {
   core.info(`[INFO] Setting up Terragrunt version: '${version}'`);
+
+  // Get latest version number and reassign version param to it.
+  if (version.toLowerCase() === 'latest') {
+    const latestVersion = await getLatestVersion();
+    version = latestVersion || '';
+  }
+
   // See if we already have it installed
   let cachedToolpath = toolCache.find(executableName, version);
   if (!cachedToolpath) {
