@@ -1,5 +1,5 @@
 import * as os from 'os';
-import {getDownloadURL} from '../src/action';
+import {getDownloadURL, getLatestVersion} from '../src/action';
 import got from 'got';
 
 jest.mock('os');
@@ -38,6 +38,14 @@ describe('getDownloadURL()', () => {
     expect(linuxDLUrl).toBe(
       'https://github.com/gruntwork-io/terragrunt/releases/download/v0.21.13/terragrunt_linux_amd64'
     );
+    expect(await checkHead(linuxDLUrl)).toEqual(302);
+  });
+
+  test('get latest url', async () => {
+    const latestVersion = await getLatestVersion() || '';
+    const spy = jest.spyOn(os, 'type');
+    spy.mockReturnValue('Linux');
+    const linuxDLUrl = getDownloadURL(latestVersion);
     expect(await checkHead(linuxDLUrl)).toEqual(302);
   });
 });

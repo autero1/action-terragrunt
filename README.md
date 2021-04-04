@@ -6,7 +6,7 @@
 
 # Setup Terragrunt GitHub Action
 
-Set up your GitHub Actions workflow with a specific version of [Terragrunt](https://terragrunt.gruntwork.io/).
+Set up your GitHub Actions workflow with a specific version of [Terragrunt](https://terragrunt.gruntwork.io/). You can optionally set version to `latest` to use the most recent version.
 
 Because of [deprecation in the GitHub Actions environment](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/), versions lower than v1.0.0 will no longer work properly.
 
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Terragrunt
-        uses: autero1/action-terragrunt@v1.0.0
+        uses: autero1/action-terragrunt@v1.1.0
         with:
           terragrunt_version: 0.21.13
       - name: Interact with Terragrunt
@@ -38,7 +38,7 @@ jobs:
 
 | Parameter | Description | Required |
 | --------- | ----------- | -------- |
-| `terragrunt_version` | Terragrunt [version](https://github.com/gruntwork-io/terragrunt/releases) to deploy | true |
+| `terragrunt_version` | Terragrunt [version](https://github.com/gruntwork-io/terragrunt/releases) to deploy. Use `latest` for the most recent version. | true |
 
 ### Outputs
 

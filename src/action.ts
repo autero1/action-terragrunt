@@ -32,7 +32,7 @@ export function getDownloadURL(version: string): string {
   }
 }
 
-const getLatestVersion = async (): Promise<string | null> => {
+export const getLatestVersion = async (): Promise<string | null> => {
   const octokit = new Octokit();
 
   const latestRelease = await octokit.repos.getLatestRelease({
