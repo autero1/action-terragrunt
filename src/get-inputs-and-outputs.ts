@@ -7,7 +7,7 @@ function showInputs(inps: Inputs): void {
 
 export function getInputs(): Inputs {
   let tgVersion = core.getInput('terragrunt_version');
-  if (!tgVersion.startsWith('v')) {
+  if (!tgVersion.startsWith('v') && tgVersion.toLowerCase() !== 'latest') {
     tgVersion = `v${tgVersion}`;
   }
   const inps: Inputs = {
