@@ -2,9 +2,9 @@ import * as core from '@actions/core';
 import * as toolCache from '@actions/tool-cache';
 import * as fs from 'fs';
 import * as os from 'os';
-import {Octokit, RestEndpointMethodTypes} from '@octokit/rest';
 import * as path from 'path';
 import * as util from 'util';
+import {Octokit} from '@octokit/rest';
 import {getInputs, getOutputs} from './get-inputs-and-outputs';
 
 const executableName = 'terragrunt';
