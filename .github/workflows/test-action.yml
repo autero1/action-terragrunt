@@ -54,10 +54,18 @@ jobs:
 
       - run: npm run build
 
-      - name: Install Terragrunt
+      - name: Install specific Terragrunt version
         uses: ./
         with:
           terragrunt_version: 0.21.13
 
-      - name: Validate
+      - name: Validate specific version
+        run: terragrunt --version
+
+      - name: Install latest Terragrunt version
+        uses: ./
+        with:
+          terragrunt_version: latest
+
+      - name: Validate latest
         run: terragrunt --version
