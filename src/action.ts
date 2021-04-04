@@ -85,6 +85,7 @@ export async function downloadTerragrunt(version: string): Promise<string> {
   if (version.toLowerCase() === 'latest') {
     const latestVersion = await getLatestVersion();
     actualVersion = latestVersion || '';
+    core.info(`[INFO] Latest Terragrunt version: '${actualVersion}'`);
   }
 
   // See if we already have it installed
