@@ -1,12 +1,15 @@
 import * as os from 'os';
 import {getDownloadURL, getLatestVersion} from '../src/action';
-import got from 'got';
+
+import * as got from 'got';
+
+const theGot = got.default;
 
 jest.mock('os');
 
 async function checkHead(url: string): Promise<number> {
   // Due to funky redirects with GitHub, just making sure we get the 302 found and not follow
-  const response = await got.get(url, {followRedirect: false});
+  const response = await theGot.get(url, {followRedirect: false});
   return response.statusCode;
 }
 
