@@ -5,11 +5,11 @@
   "author": "Petri Autero",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.5.0",
-    "@actions/exec": "^1.1.0",
-    "@actions/io": "^1.1.1",
-    "@actions/tool-cache": "1.1.2",
-    "@octokit/rest": "^18.10.0"
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1",
+    "@actions/io": "^1.1.2",
+    "@actions/tool-cache": "2.0.1",
+    "@octokit/rest": "^19.0.5"
   },
   "main": "lib/index.js",
   "engines": {
@@ -54,19 +54,19 @@
   ],
   "devDependencies": {
     "@types/jest": "^25.2.3",
-    "@types/node": "^13.13.52",
+    "@types/node": "^18.11.2",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
-    "@vercel/ncc": "^0.25.1",
+    "@vercel/ncc": "^0.34.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-jest": "^23.20.0",
-    "got": "^10.7.0",
-    "husky": "^4.3.8",
+    "eslint-plugin-jest": "^24.2.1",
+    "got": "^12.5.2",
+    "husky": "^8.0.1",
     "jest": "^25.5.4",
-    "jest-circus": "^25.5.4",
-    "lint-staged": "^10.5.4",
-    "prettier": "1.19.1",
-    "standard-version": "^9.3.1",
+    "jest-circus": "^29.2.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
+    "standard-version": "^9.5.0",
     "ts-jest": "^25.5.1",
     "typescript": "^3.9.10"
   }
