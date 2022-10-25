@@ -10,6 +10,8 @@ Set up your GitHub Actions workflow with a specific version of [Terragrunt](http
 
 Because of [deprecation in the GitHub Actions environment](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/), versions lower than v1.0.0 will no longer work properly.
 
+Because [all Github Actions will run on Node16](https://github.blog/changelog/2022-09-22-github-actions-all-actions-will-begin-running-on-node16-instead-of-node12/), versions lower than v1.2.0 will no longer work properly (warnings before Summer 2023/ errors after Summer 2023).
+
 ## Usage
 
 The next example step will install Terragrunt 0.21.13.
