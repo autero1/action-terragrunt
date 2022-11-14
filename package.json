@@ -59,7 +59,7 @@
     "@typescript-eslint/parser": "^2.34.0",
     "@vercel/ncc": "^0.34.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-jest": "^24.2.1",
+    "eslint-plugin-jest": "^27.1.5",
     "got": "^11.8.5",
     "husky": "^8.0.1",
     "jest": "^29.2.1",
