@@ -10,8 +10,11 @@ export function getInputs(): Inputs {
   if (!tgVersion.startsWith('v') && tgVersion.toLowerCase() !== 'latest') {
     tgVersion = `v${tgVersion}`;
   }
+  const token = core.getInput('token') || undefined;
+
   const inps: Inputs = {
-    TerragruntVersion: tgVersion
+    TerragruntVersion: tgVersion,
+    GithubToken: token
   };
 
   showInputs(inps);

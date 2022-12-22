@@ -33,7 +33,9 @@ export function getDownloadURL(version: string): string {
 }
 
 export const getLatestVersion = async (): Promise<string | null> => {
-  const octokit = new Octokit();
+  const octokit = new Octokit({
+    auth: getInputs().GithubToken
+  });
 
   const latestRelease = await octokit.repos.getLatestRelease({
     owner: 'gruntwork-io',

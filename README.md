@@ -30,6 +30,7 @@ jobs:
         uses: autero1/action-terragrunt@v1.1.0
         with:
           terragrunt_version: 0.21.13
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Interact with Terragrunt
         run: terragrunt --version
 ```
@@ -39,6 +40,7 @@ jobs:
 | Parameter | Description | Required |
 | --------- | ----------- | -------- |
 | `terragrunt_version` | Terragrunt [version](https://github.com/gruntwork-io/terragrunt/releases) to deploy. Use `latest` for the most recent version. | true |
+| `token` | Github API Token to avoid rate limiting while getting latest Terragrunt release | false |
 
 ### Outputs
 
