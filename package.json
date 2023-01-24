@@ -9,7 +9,7 @@
     "@actions/exec": "^1.1.1",
     "@actions/io": "^1.1.2",
     "@actions/tool-cache": "2.0.1",
-    "@octokit/rest": "^19.0.5"
+    "@octokit/rest": "^19.0.7"
   },
   "main": "lib/index.js",
   "engines": {
