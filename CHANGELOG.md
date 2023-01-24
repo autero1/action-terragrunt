@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.3.0](https://github.com/autero1/action-terragrunt/compare/v1.2.0...v1.3.0) (2023-01-24)
+
+
+### feat
+
+* add github api token input ([318b30a](https://github.com/autero1/action-terragrunt/commit/318b30a44f5bbc0d6a26e1b24943b8e82993da2f))
+
+
+
 # [1.2.0](https://github.com/autero1/action-terragrunt/compare/v1.1.1...v1.2.0) (2022-10-23)
 
 
