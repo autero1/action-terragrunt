@@ -5,6 +5,9 @@ inputs:
   terragrunt_version:
     description: 'Terragrunt version to install'
     required: true
+  token:
+    description: 'Github token to use for getting latest release'
+    required: false
 outputs:
   terragrunt_path:
     description: 'Path to the terragrunt binary'
