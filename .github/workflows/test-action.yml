@@ -3,9 +3,9 @@ name: Test Action
 on:
   push:
     branches:
-      - '*'
+      - "*"
     paths-ignore:
-      - '*.md'
+      - "*.md"
   # A pull request sent from a fork of the upstream repository could be manipulated to do harmful things.
   # The upstream repository’s maintainer would have no protection against this attack, as pull requests
   # can be sent by anyone who forks the repository on GitHub.
@@ -19,7 +19,7 @@ on:
 
 jobs:
   skipci:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
 
@@ -30,16 +30,16 @@ jobs:
       max-parallel: 1
       matrix:
         os:
-          - 'ubuntu-18.04'
-          - 'macos-latest'
-          - 'windows-latest'
+          - "ubuntu-22.04"
+          - "macos-latest"
+          - "windows-latest"
     steps:
       - uses: actions/checkout@v3
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
 
       - run: npm ci
 
