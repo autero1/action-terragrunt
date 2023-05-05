@@ -42,7 +42,7 @@ export const getLatestVersion = async (): Promise<string | null> => {
     repo: 'terragrunt'
   });
 
-  return latestRelease.data.name;
+  return latestRelease.data.tag;
 };
 
 const walkSync = function (
