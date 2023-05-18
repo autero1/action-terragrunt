@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.2](https://github.com/autero1/action-terragrunt/compare/v1.3.1...v1.3.2) (2023-05-18)
+
+
+### chore
+
+* upgrade actions runners ([563c789](https://github.com/autero1/action-terragrunt/commit/563c789ec8329b843cda989b95ca6a6709814b6f))
+
+### fix
+
+* use tag instead of name for latestRelease ([1acad56](https://github.com/autero1/action-terragrunt/commit/1acad564aa48ef43b0e77521a705975b4f90434d))
+
+### test
+
+* mock os architecture ([02a9d37](https://github.com/autero1/action-terragrunt/commit/02a9d37ea715bff4a5b304be8f2fc7f4d3cf466f))
+
+
+
 ## [1.3.1](https://github.com/autero1/action-terragrunt/compare/v1.3.0...v1.3.1) (2023-03-04)
 
 
