@@ -8,7 +8,7 @@ import {Octokit} from '@octokit/rest';
 import {getInputs, getOutputs} from './get-inputs-and-outputs';
 
 const executableName = 'terragrunt';
-const fullExecutableFormat = 'terragrunt_%s_amd64';
+const fullExecutableFormat = 'terragrunt_%s_%s';
 const downloadUrlFormat = `https://github.com/gruntwork-io/terragrunt/releases/download/%s/${fullExecutableFormat}`;
 
 export function getExecutableExtension(): string {
@@ -18,17 +18,37 @@ export function getExecutableExtension(): string {
   return '';
 }
 
+export function getArchName(): string {
+  switch (os.arch()) {
+    case 'x32':
+      return '386';
+
+    case 'x64':
+      return 'amd64';
+
+    case 'arm64':
+      return 'arm64';
+
+    default:
+      throw new Error(
+        util.format('Unknown architecture ', os.arch())
+      );
+  }
+}
+
 export function getDownloadURL(version: string): string {
+  const arch = getArchName();
+
   switch (os.type()) {
     case 'Windows_NT':
-      return `${util.format(downloadUrlFormat, version, 'windows')}.exe`;
+      return `${util.format(downloadUrlFormat, version, 'windows', arch)}.exe`;
 
     case 'Darwin':
-      return util.format(downloadUrlFormat, version, 'darwin');
+      return util.format(downloadUrlFormat, version, 'darwin', arch);
 
     case 'Linux':
     default:
-      return util.format(downloadUrlFormat, version, 'linux');
+      return util.format(downloadUrlFormat, version, 'linux', arch);
   }
 }
 
