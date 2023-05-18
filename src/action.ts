@@ -30,9 +30,7 @@ export function getArchName(): string {
       return 'arm64';
 
     default:
-      throw new Error(
-        util.format('Unknown architecture ', os.arch())
-      );
+      throw new Error(util.format('Unknown architecture ', os.arch()));
   }
 }
 
