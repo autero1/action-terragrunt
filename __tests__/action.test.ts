@@ -15,8 +15,10 @@ async function checkHead(url: string): Promise<number> {
 
 describe('getDownloadURL()', () => {
   test('get windows url', async () => {
-    const spy = jest.spyOn(os, 'type');
-    spy.mockReturnValue('Windows_NT');
+    const osTypeSpy = jest.spyOn(os, 'type');
+    osTypeSpy.mockReturnValue('Windows_NT');
+    const osArchSpy = jest.spyOn(os, 'arch');
+    osArchSpy.mockReturnValue('x64');
     const winDLUrl = getDownloadURL('v0.21.13');
     expect(winDLUrl).toBe(
       'https://github.com/gruntwork-io/terragrunt/releases/download/v0.21.13/terragrunt_windows_amd64.exe'
@@ -25,8 +27,10 @@ describe('getDownloadURL()', () => {
   });
 
   test('get darwin url', async () => {
-    const spy = jest.spyOn(os, 'type');
-    spy.mockReturnValue('Darwin');
+    const osTypeSpy = jest.spyOn(os, 'type');
+    osTypeSpy.mockReturnValue('Darwin');
+    const osArchSpy = jest.spyOn(os, 'arch');
+    osArchSpy.mockReturnValue('x64');
     const darwinDLUrl = getDownloadURL('v0.21.13');
     expect(darwinDLUrl).toBe(
       'https://github.com/gruntwork-io/terragrunt/releases/download/v0.21.13/terragrunt_darwin_amd64'
@@ -35,8 +39,10 @@ describe('getDownloadURL()', () => {
   });
 
   test('get linux url', async () => {
-    const spy = jest.spyOn(os, 'type');
-    spy.mockReturnValue('Linux');
+    const osTypeSpy = jest.spyOn(os, 'type');
+    osTypeSpy.mockReturnValue('Linux');
+    const osArchSpy = jest.spyOn(os, 'arch');
+    osArchSpy.mockReturnValue('x64');
     const linuxDLUrl = getDownloadURL('v0.21.13');
     expect(linuxDLUrl).toBe(
       'https://github.com/gruntwork-io/terragrunt/releases/download/v0.21.13/terragrunt_linux_amd64'
@@ -46,8 +52,8 @@ describe('getDownloadURL()', () => {
 
   test('get latest url', async () => {
     const latestVersion = (await getLatestVersion()) || '';
-    const spy = jest.spyOn(os, 'type');
-    spy.mockReturnValue('Linux');
+    const osTypeSpy = jest.spyOn(os, 'type');
+    osTypeSpy.mockReturnValue('Linux');
     const linuxDLUrl = getDownloadURL(latestVersion);
     expect(await checkHead(linuxDLUrl)).toEqual(302);
   });
