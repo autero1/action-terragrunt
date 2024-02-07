@@ -15,5 +15,5 @@ branding:
   icon: cloud
   color: 'orange'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'lib/index.js'
