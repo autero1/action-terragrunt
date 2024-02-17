@@ -12,7 +12,7 @@ Because of [deprecation in the GitHub Actions environment](https://github.blog/c
 
 ## Usage
 
-The next example step will install Terragrunt 0.21.13.
+The next example step will install Terragrunt 0.55.2.
 
 ```yaml
 name: Example workflow
@@ -27,9 +27,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Terragrunt
-        uses: autero1/action-terragrunt@v1.1.0
+        uses: autero1/action-terragrunt@v2
         with:
-          terragrunt_version: 0.21.13
+          terragrunt_version: 0.55.2
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Interact with Terragrunt
         run: terragrunt --version
@@ -52,7 +52,7 @@ jobs:
 
 This action has been tested on the following platforms:
 
-* ubuntu-18.04
+* ubuntu-22.04
 * windows-latest
 * macos-latest
 

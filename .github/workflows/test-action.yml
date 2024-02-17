@@ -53,7 +53,7 @@ jobs:
       - name: Install specific Terragrunt version
         uses: ./
         with:
-          terragrunt_version: 0.21.13
+          terragrunt_version: 0.54.0
 
       - name: Validate specific version
         run: terragrunt --version
