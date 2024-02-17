@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.0.0](https://github.com/autero1/action-terragrunt/compare/v1.3.2...v2.0.0) (2024-02-17)
+
+
+### chore
+
+* bump dependencies ([5853e32](https://github.com/autero1/action-terragrunt/commit/5853e327548746e7f8044d26a47e97de912f33a3))
+
+### test
+
+* install 0.54.0 terragrunt in test ([f9da40a](https://github.com/autero1/action-terragrunt/commit/f9da40a1acbeb5c62601a5ba9b6f067a86cd518e))
+* only upload ubuntu coverage ([a4f7188](https://github.com/autero1/action-terragrunt/commit/a4f7188b08b0bee271c08dc81ae828860a9834d3))
+* restore got for the time being ([9a2698f](https://github.com/autero1/action-terragrunt/commit/9a2698f760748ca2930d82a358c7e5bd14bac9b3))
+
+
+
 ## [1.3.2](https://github.com/autero1/action-terragrunt/compare/v1.3.1...v1.3.2) (2023-05-18)
 
 
