@@ -69,7 +69,7 @@ jobs:
 | Parameter                 | Description                                                                                                                    | Required                                |
 |---------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | `terragrunt-version`      | Terragrunt [version](https://github.com/gruntwork-io/terragrunt/releases) to deploy. Use `latest` for the most recent version. | either version or version file required |
-| `terragrunt-version-file` | Terragrunt [version](https://github.com/gruntwork-io/terragrunt/releases) to deploy. Use `latest` for the most recent version. | either version or version file required |
+| `terragrunt-version-file` | File containing the Terragrunt version to install.                                                                             | either version or version file required |
 | `token`                   | Github API Token to avoid rate limiting while getting latest Terragrunt release                                                | false                                   |
 
 ### Outputs
