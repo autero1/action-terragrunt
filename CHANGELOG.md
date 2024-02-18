@@ -17,6 +17,29 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
+## [3.0.0](https://github.com/autero1/action-terragrunt/compare/v2.0.0...v3.0.0) (2024-02-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* change input/output vars underscores to dashes
+* use an optional version file to specify Terragrunt version (one of `terragrunt-version` or `terragrunt-version-file` required)
+
+### Features
+
+* use an optional version file to specify Terragrunt version (one of `terragrunt-version` or `terragrunt-version-file` required) ([ea717b1](https://github.com/autero1/action-terragrunt/commit/ea717b1be44da5d5d4f6b9bc07688c1945d766d7))
+* use release-please instead of manual release process ([#347](https://github.com/autero1/action-terragrunt/issues/347)) ([46abb67](https://github.com/autero1/action-terragrunt/commit/46abb67fe1471e7458d19b2920ee0237892aaafc))
+
+
+### Bug Fixes
+
+* fix formatting ([#348](https://github.com/autero1/action-terragrunt/issues/348)) ([ffcb03c](https://github.com/autero1/action-terragrunt/commit/ffcb03c8cf39ea7489d53fc80e67689c318bfbed))
+
+
+### Code Refactoring
+
+* change input/output vars underscores to dashes ([ea717b1](https://github.com/autero1/action-terragrunt/commit/ea717b1be44da5d5d4f6b9bc07688c1945d766d7))
+
 ## [1.3.2](https://github.com/autero1/action-terragrunt/compare/v1.3.1...v1.3.2) (2023-05-18)
 
 
