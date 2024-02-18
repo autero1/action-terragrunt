@@ -7,6 +7,12 @@ const theGot = got.default;
 
 jest.mock('os');
 
+afterEach(() => {
+  delete process.env['INPUT_TERRAGRUNT-VERSION'];
+  delete process.env['INPUT_TERRAGRUNT-VERSION-FILE'];
+  delete process.env['GITHUB_WORKSPACE'];
+});
+
 async function checkHead(url: string): Promise<number> {
   // Due to funky redirects with GitHub, just making sure we get the 302 found and not follow
   const response = await theGot.get(url, {followRedirect: false});
@@ -51,6 +57,7 @@ describe('getDownloadURL()', () => {
   });
 
   test('get latest url', async () => {
+    process.env['INPUT_TERRAGRUNT-VERSION'] = 'latest';
     const latestVersion = (await getLatestVersion()) || '';
     const osTypeSpy = jest.spyOn(os, 'type');
     osTypeSpy.mockReturnValue('Linux');
