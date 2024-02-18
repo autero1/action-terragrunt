@@ -51,7 +51,6 @@ describe('getInputs()', () => {
     expect(inputs.TerragruntVersion).toMatch('');
   });
 
-
   test('get spec input prefixes with v', () => {
     process.env['INPUT_TERRAGRUNT-VERSION'] = '0.21.13';
 
