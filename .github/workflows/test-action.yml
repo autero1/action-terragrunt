@@ -66,16 +66,16 @@ jobs:
       - name: Validate latest
         run: terragrunt --version
 
-      - name: Install Terragrunt with version file latest
+      - name: Install Terragrunt with version file specified version
         uses: ./
         with:
           terragrunt-version-file: .terragrunt-version
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Validate version file latest
+      - name: Validate version file specified version
         run: terragrunt --version
 
-      - name: Install Terragrunt with version file specified
+      - name: Install Terragrunt with version file latest
         uses: ./
         with:
           terragrunt-version-file: .terragrunt-version-latest
