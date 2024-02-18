@@ -1,11 +1,10 @@
 name: Test Action
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - "*"
-    paths-ignore:
-      - "*.md"
   # A pull request sent from a fork of the upstream repository could be manipulated to do harmful things.
   # The upstream repository’s maintainer would have no protection against this attack, as pull requests
   # can be sent by anyone who forks the repository on GitHub.
@@ -53,7 +52,7 @@ jobs:
       - name: Install specific Terragrunt version
         uses: ./
         with:
-          terragrunt_version: 0.54.0
+          terragrunt-version: 0.54.0
 
       - name: Validate specific version
         run: terragrunt --version
@@ -61,8 +60,26 @@ jobs:
       - name: Install latest Terragrunt version
         uses: ./
         with:
-          terragrunt_version: latest
+          terragrunt-version: latest
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Validate latest
+        run: terragrunt --version
+
+      - name: Install Terragrunt with version file latest
+        uses: ./
+        with:
+          terragrunt-version-file: .terragrunt-version
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate version file latest
+        run: terragrunt --version
+
+      - name: Install Terragrunt with version file specified
+        uses: ./
+        with:
+          terragrunt-version-file: .terragrunt-version-latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate version file latest
         run: terragrunt --version

@@ -10,6 +10,12 @@ Set up your GitHub Actions workflow with a specific version of [Terragrunt](http
 
 Because of [deprecation in the GitHub Actions environment](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/), versions lower than v1.0.0 will no longer work properly.
 
+## Special Notice
+
+From version `v3.0.0`, the inputs and outputs are changed to dash-separated version (`terragrunt-version`, `terragrunt-version-file`, `terragrunt-path`).
+
+This convention aligns with the YAML style guide and is more prevalent in the GitHub Actions community and documentation.
+
 ## Usage
 
 The next example step will install Terragrunt 0.55.2.
@@ -27,26 +33,50 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Terragrunt
-        uses: autero1/action-terragrunt@v2
+        uses: autero1/action-terragrunt@v3
         with:
-          terragrunt_version: 0.55.2
+          terragrunt-version: 0.55.2
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Interact with Terragrunt
         run: terragrunt --version
 ```
+If you want to use a version file, e.g. `.terragrunt-version`, you can use the following example:
+
+```yaml
+name: Example workflow with version file
+
+on: [push]
+
+jobs:
+  example:
+    name: Example Terragrunt interaction
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Terragrunt
+        uses: autero1/action-terragrunt@v3
+        with:
+          terragrunt-version-file: .terragrunt-version
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Interact with Terragrunt
+        run: terragrunt --version
+
+```
 
 ### Inputs
 
-| Parameter | Description | Required |
-| --------- | ----------- | -------- |
-| `terragrunt_version` | Terragrunt [version](https://github.com/gruntwork-io/terragrunt/releases) to deploy. Use `latest` for the most recent version. | true |
-| `token` | Github API Token to avoid rate limiting while getting latest Terragrunt release | false |
+| Parameter                 | Description                                                                                                                    | Required                                |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `terragrunt-version`      | Terragrunt [version](https://github.com/gruntwork-io/terragrunt/releases) to deploy. Use `latest` for the most recent version. | either version or version file required |
+| `terragrunt-version-file` | File containing the Terragrunt version to install.                                                                             | either version or version file required |
+| `token`                   | Github API Token to avoid rate limiting while getting latest Terragrunt release                                                | false                                   |
 
 ### Outputs
 
-| Parameter | Description |
-| --------- | ----------- |
-| `terragrunt_path` | Cached tool path of Terragrunt |
+| Parameter         | Description |
+|-------------------| ----------- |
+| `terragrunt-path` | Cached tool path of Terragrunt |
 
 ### Supported platforms
 

@@ -2,14 +2,14 @@ name: 'Terragrunt installer'
 description: 'Install a specific version of terragrunt binary.'
 author: 'Petri Autero'
 inputs:
-  terragrunt_version:
-    description: 'Terragrunt version to install'
-    required: true
+  terragrunt-version:
+    description: 'Terragrunt version to install. Examples: 0.52.0, latest'
+  terragrunt-version-file:
+    description: 'File containing the Terragrunt version to install.  Examples: .terragrunt-version'
   token:
     description: 'Github token to use for getting latest release'
-    required: false
 outputs:
-  terragrunt_path:
+  terragrunt-path:
     description: 'Path to the terragrunt binary'
 branding:
   icon: cloud
