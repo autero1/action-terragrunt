@@ -147,6 +147,7 @@ export async function downloadTerragrunt(version: string): Promise<string> {
 
 export async function run(): Promise<void> {
   const terragruntVersion: string = getInputs().TerragruntVersion;
+
   const cachedPath = await downloadTerragrunt(terragruntVersion);
 
   // Add the cached tool to path

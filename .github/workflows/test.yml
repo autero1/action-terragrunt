@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - "*"
-    paths-ignore:
-      - "*.md"
 
   # A pull request sent from a fork of the upstream repository could be manipulated to do harmful things.
   # The upstream repository’s maintainer would have no protection against this attack, as pull requests
