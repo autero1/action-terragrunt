@@ -1,8 +1,10 @@
 import {Inputs, Outputs} from '../src/interfaces';
 import {getInputs, getOutputs} from '../src/get-inputs-and-outputs';
+import assert from 'node:assert/strict';
+import {afterEach, beforeEach, describe, it, mock} from 'node:test';
 
 beforeEach(() => {
-  jest.resetModules();
+  mock.reset();
 });
 
 afterEach(() => {
@@ -12,56 +14,56 @@ afterEach(() => {
 });
 
 describe('getInputs()', () => {
-  test('get spec input version only', () => {
+  it('should get proper value from version input', () => {
     process.env['INPUT_TERRAGRUNT-VERSION'] = 'v0.21.13';
 
     const inputs: Inputs = getInputs();
 
-    expect(inputs.TerragruntVersion).toMatch('v0.21.13');
+    assert.strictEqual(inputs.TerragruntVersion, 'v0.21.13');
   });
 
-  test('get spec input version file only', () => {
-    process.env['GITHUB_WORKSPACE'] = './__tests__';
+  it('should get proper value from input version file only', () => {
+    process.env['GITHUB_WORKSPACE'] = './test';
     process.env['INPUT_TERRAGRUNT-VERSION-FILE'] = '.terragrunt-version';
 
     const inputs: Inputs = getInputs();
 
-    expect(inputs.TerragruntVersion).toMatch('v0.50.0');
+    assert.strictEqual(inputs.TerragruntVersion, 'v0.50.0');
   });
 
-  test('get spec input version latest', () => {
+  it('should get proper value from input version latest', () => {
     process.env['INPUT_TERRAGRUNT-VERSION'] = 'latest';
 
     const inputs: Inputs = getInputs();
 
-    expect(inputs.TerragruntVersion).toMatch('latest');
+    assert.strictEqual(inputs.TerragruntVersion, 'latest');
   });
 
-  test('get spec input version and version-file', () => {
+  it('should get proper value from input version and version-file', () => {
     process.env['INPUT_TERRAGRUNT-VERSION'] = 'v0.22.0';
     process.env['INPUT_TERRAGRUNT-VERSION-FILE'] = '.terragrunt-version';
 
     const inputs: Inputs = getInputs();
 
-    expect(inputs.TerragruntVersion).toMatch('v0.22.0');
+    assert.strictEqual(inputs.TerragruntVersion, 'v0.22.0');
   });
 
-  test('get spec neither input version or version-file', () => {
+  it('should get proper value from neither input version or version-file', () => {
     const inputs: Inputs = getInputs();
-    expect(inputs.TerragruntVersion).toMatch('');
+    assert.strictEqual(inputs.TerragruntVersion, '');
   });
 
-  test('get spec input prefixes with v', () => {
+  it('should prefix with v', () => {
     process.env['INPUT_TERRAGRUNT-VERSION'] = '0.21.13';
 
     const inputs: Inputs = getInputs();
 
-    expect(inputs.TerragruntVersion).toMatch('v0.21.13');
+    assert.strictEqual(inputs.TerragruntVersion, 'v0.21.13');
   });
 
-  test('get spec outputs', () => {
+  it('should get spec outputs', () => {
     const outputs: Outputs = getOutputs();
 
-    expect(outputs.TerragruntPath).toMatch('terragrunt-path');
+    assert.strictEqual(outputs.TerragruntPath, 'terragrunt-path');
   });
 });

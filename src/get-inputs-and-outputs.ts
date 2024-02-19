@@ -19,7 +19,11 @@ export function getTerragruntVersionFromFile(versionFilePath: string): string {
 }
 
 function prepareInputs(tgVersion: string): Inputs {
-  if (!tgVersion.startsWith('v') && tgVersion.toLowerCase() !== 'latest') {
+  if (
+    tgVersion &&
+    !tgVersion.startsWith('v') &&
+    tgVersion.toLowerCase() !== 'latest'
+  ) {
     tgVersion = `v${tgVersion}`;
   }
 

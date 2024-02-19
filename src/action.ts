@@ -69,13 +69,12 @@ const walkSync = function (
   fileToFind: string
 ): string[] {
   const files = fs.readdirSync(dir);
-  filelist = filelist || [];
   files.forEach(function (file) {
     if (fs.statSync(path.join(dir, file)).isDirectory()) {
       filelist = walkSync(path.join(dir, file), filelist, fileToFind);
     } else {
       core.debug(file);
-      if (file == fileToFind) {
+      if (file === fileToFind) {
         filelist.push(path.join(dir, file));
       }
     }
@@ -87,7 +86,7 @@ export function findExecutable(rootFolder: string): string {
   fs.chmodSync(rootFolder, '777');
   const filelist: string[] = [];
   walkSync(rootFolder, filelist, executableName + getExecutableExtension());
-  if (!filelist) {
+  if (filelist.length === 0) {
     throw new Error(
       util.format('Terragrunt executable not found in path ', rootFolder)
     );
