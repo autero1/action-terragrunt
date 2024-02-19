@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.0.1](https://github.com/autero1/action-terragrunt/compare/v3.0.0...v3.0.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* **lint:** resolve linting issues across the codebase ([22304b0](https://github.com/autero1/action-terragrunt/commit/22304b0ef1e8a1af51e0b6403dd134cc0e2f2c99))
+* **release:** fix release-please configuration ([#354](https://github.com/autero1/action-terragrunt/issues/354)) ([d568e25](https://github.com/autero1/action-terragrunt/commit/d568e2550c289e3cfa25247ebe2aef76e07c0e70))
+* **release:** fix release-please configuration and CHANGELOG.md formatting ([#352](https://github.com/autero1/action-terragrunt/issues/352)) ([4d12d72](https://github.com/autero1/action-terragrunt/commit/4d12d72ced25a11ac99a6acf709cfad540d01448))
+* **tests:** use proper glob pattern to run tests on all branches ([22304b0](https://github.com/autero1/action-terragrunt/commit/22304b0ef1e8a1af51e0b6403dd134cc0e2f2c99))
+
 ## [3.0.0](https://github.com/autero1/action-terragrunt/compare/v2.0.0...v3.0.0) (2024-02-18)
 
 
