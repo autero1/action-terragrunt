@@ -17,6 +17,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
+## [3.0.1](https://github.com/autero1/action-terragrunt/compare/v3.0.0...v3.0.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* **lint:** resolve linting issues across the codebase ([22304b0](https://github.com/autero1/action-terragrunt/commit/22304b0ef1e8a1af51e0b6403dd134cc0e2f2c99))
+* **tests:** use proper glob pattern to run tests on all branches ([22304b0](https://github.com/autero1/action-terragrunt/commit/22304b0ef1e8a1af51e0b6403dd134cc0e2f2c99))
+
 ## [3.0.0](https://github.com/autero1/action-terragrunt/compare/v2.0.0...v3.0.0) (2024-02-18)
 
 
