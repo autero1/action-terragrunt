@@ -1,8 +1,8 @@
-export interface Inputs {
+export type Inputs = {
   readonly TerragruntVersion: string;
   readonly GithubToken?: string;
-}
+};
 
-export interface Outputs {
+export type Outputs = {
   readonly TerragruntPath: string;
-}
+};
