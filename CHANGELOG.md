@@ -1,22 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
-# [2.0.0](https://github.com/autero1/action-terragrunt/compare/v1.3.2...v2.0.0) (2024-02-17)
-
-
-### chore
-
-* bump dependencies ([5853e32](https://github.com/autero1/action-terragrunt/commit/5853e327548746e7f8044d26a47e97de912f33a3))
-
-### test
-
-* install 0.54.0 terragrunt in test ([f9da40a](https://github.com/autero1/action-terragrunt/commit/f9da40a1acbeb5c62601a5ba9b6f067a86cd518e))
-* only upload ubuntu coverage ([a4f7188](https://github.com/autero1/action-terragrunt/commit/a4f7188b08b0bee271c08dc81ae828860a9834d3))
-* restore got for the time being ([9a2698f](https://github.com/autero1/action-terragrunt/commit/9a2698f760748ca2930d82a358c7e5bd14bac9b3))
-
-
-
 ## [3.0.0](https://github.com/autero1/action-terragrunt/compare/v2.0.0...v3.0.0) (2024-02-18)
 
 
@@ -40,6 +23,23 @@ All notable changes to this project will be documented in this file. See [standa
 
 * change input/output vars underscores to dashes ([ea717b1](https://github.com/autero1/action-terragrunt/commit/ea717b1be44da5d5d4f6b9bc07688c1945d766d7))
 
+
+
+
+## [2.0.0](https://github.com/autero1/action-terragrunt/compare/v1.3.2...v2.0.0) (2024-02-17)
+
+### chore
+
+* bump dependencies ([5853e32](https://github.com/autero1/action-terragrunt/commit/5853e327548746e7f8044d26a47e97de912f33a3))
+
+### test
+
+* install 0.54.0 terragrunt in test ([f9da40a](https://github.com/autero1/action-terragrunt/commit/f9da40a1acbeb5c62601a5ba9b6f067a86cd518e))
+* only upload ubuntu coverage ([a4f7188](https://github.com/autero1/action-terragrunt/commit/a4f7188b08b0bee271c08dc81ae828860a9834d3))
+* restore got for the time being ([9a2698f](https://github.com/autero1/action-terragrunt/commit/9a2698f760748ca2930d82a358c7e5bd14bac9b3))
+
+
+
 ## [1.3.2](https://github.com/autero1/action-terragrunt/compare/v1.3.1...v1.3.2) (2023-05-18)
 
 
@@ -62,7 +62,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-# [1.3.0](https://github.com/autero1/action-terragrunt/compare/v1.2.0...v1.3.0) (2023-01-24)
+## [1.3.0](https://github.com/autero1/action-terragrunt/compare/v1.2.0...v1.3.0) (2023-01-24)
 
 
 ### feat
@@ -71,7 +71,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-# [1.2.0](https://github.com/autero1/action-terragrunt/compare/v1.1.1...v1.2.0) (2022-10-23)
+## [1.2.0](https://github.com/autero1/action-terragrunt/compare/v1.1.1...v1.2.0) (2022-10-23)
 
 
 ### ci
@@ -90,7 +90,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-# [1.1.0](https://github.com/autero1/action-terragrunt/compare/v1.0.1...v1.1.0) (2021-04-04)
+## [1.1.0](https://github.com/autero1/action-terragrunt/compare/v1.0.1...v1.1.0) (2021-04-04)
 
 
 ### feat
