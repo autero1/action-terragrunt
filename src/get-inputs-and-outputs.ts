@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import fs from 'fs';
 import * as path from 'path';
-import { Inputs, Outputs } from './interfaces';
+import {Inputs, Outputs} from './interfaces';
 
 function showInputs(inps: Inputs): void {
   core.info(`[INFO] TerragruntVersion: ${inps.TerragruntVersion}`);
