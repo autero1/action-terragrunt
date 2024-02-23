@@ -1,40 +1,67 @@
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
-
-permissions:
-  contents: write
-  pull-requests: write
-
+  workflow_dispatch:
 name: release-please
-
+env:
+  ACTION_NAME: action-terragrunt
 jobs:
-  release-please:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-      - name: Remove old lib
-        run: |
-          rm -Rf ./lib
-          mkdir ./lib
-      - name: Install Dependencies
-        run: npm ci
-      - name: Build Project
-        run: npm run build
-      - name: Commit ./lib/index.js
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add ./lib/index.js
-          git commit -m "chore(release): Add build assets" || echo "No changes to commit"
-          git push --force origin main
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version-file: ".nvmrc"
+    - name: install
+      run: npm ci
+    - name: build
+      run: npm run build
+    - name: commit
+      run: |-
+        set -e
+        # get current commit hash
+        CURRENT_HASH=$(git rev-parse HEAD)
+        # get last commit hash of last build lib
+        LAST_BUILD_HASH=$(git log --author=google-github-actions-bot -1 --pretty=format:"%H")
+        DIFF=""
+        # build and commit lib if diff
+        git config --global user.name "actions-bot"
+        git config user.email 'github-actions-bot@google.com'
+        git add lib/
+        git diff-index --quiet HEAD || git commit -m "chore: build lib ${ACTION_NAME}"
+        # if last commit hash of last build lib was found, get logs of commits in btw for PR body
+        if [ -z "$LAST_BUILD_HASH" ]
+        then
+              echo "Unable to find last commit by bot, skipping diff gen"
+        else
+              DIFF=$(git log ${LAST_BUILD_HASH}...${CURRENT_HASH} --oneline)
+              echo $DIFF
+        fi
+        # set env vars
+        echo "CURRENT_HASH=${CURRENT_HASH}" >> $GITHUB_ENV
+        echo "LAST_BUILD_HASH=${LAST_BUILD_HASH}" >> $GITHUB_ENV
+        echo 'DIFF<<EOF' >> $GITHUB_ENV
+        echo "${DIFF}" >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+    - name: Create PR with lib
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: Build lib
+        author: "actions-bot <github-actions-bot@google.com>"
+        title: "chore: build lib"
+        body: |
+          Build lib PR
+          ${{env.DIFF}}
+        labels: automated pr
+        branch: create-pull-request/build-lib
+        delete-branch: true
+  release-please-release:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
       - uses: google-github-actions/release-please-action@v4
         id: release
         with:
