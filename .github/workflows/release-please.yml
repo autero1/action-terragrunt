@@ -28,6 +28,8 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          rm -Rf ./lib
+          mkdir ./lib
           git add ./lib/index.js
           git commit -m "chore(release): Add build assets"
       - uses: google-github-actions/release-please-action@v4
