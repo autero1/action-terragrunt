@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
-import {Inputs, Outputs} from './interfaces';
-import * as path from 'path';
 import fs from 'fs';
+import * as path from 'path';
+import { Inputs, Outputs } from './interfaces';
 
 function showInputs(inps: Inputs): void {
   core.info(`[INFO] TerragruntVersion: ${inps.TerragruntVersion}`);
@@ -45,7 +45,7 @@ export function getInputs(): Inputs {
 
   if (tgVersion && tgVersionFile) {
     core.warning(
-      '[WARN] Both terragrunt-version and terragrunt-version-file inputs are specified, only terragrunt-version will be used'
+      '[WARN] Both terragrunt-version and terragrunt-version-file inputs are specified. Only terragrunt-version will be used'
     );
     return prepareInputs(tgVersion);
   }

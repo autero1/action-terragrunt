@@ -33,7 +33,8 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add ./lib/index.js
-          git commit -m "chore(release): Add build assets"
+          git commit -m "chore(release): Add build assets" || echo "No changes to commit"
+          git push origin main
       - uses: google-github-actions/release-please-action@v4
         id: release
         with:
