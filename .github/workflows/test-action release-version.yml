@@ -1,0 +1,19 @@
+name: Test Action Release Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-release-version:
+    runs-on: "ubuntu-22.04"
+    steps:
+      - uses: autero1/action-terragrunt@v3
+        with:
+          terragrunt-version: 0.55.0
+      - name: Validate
+        run: terragrunt --version
+      - uses: autero1/action-terragrunt@v3
+        with:
+          terragrunt-version: latest
+      - name: Validate
+        run: terragrunt --version
