@@ -20,6 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+      - name: Remove old lib
+        run: |
+          rm -Rf ./lib
+          mkdir ./lib
       - name: Install Dependencies
         run: npm ci
       - name: Build Project
@@ -28,8 +32,6 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          rm -Rf ./lib
-          mkdir ./lib
           git add ./lib/index.js
           git commit -m "chore(release): Add build assets"
       - uses: google-github-actions/release-please-action@v4
