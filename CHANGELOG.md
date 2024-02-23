@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.0.2](https://github.com/autero1/action-terragrunt/compare/v3.0.1...v3.0.2) (2024-02-23)
+
+
+### Bug Fixes
+
+* Add build assets ([#364](https://github.com/autero1/action-terragrunt/issues/364)) ([fbf57bc](https://github.com/autero1/action-terragrunt/commit/fbf57bc433aed5187d2e745446f2419812152f8c))
+* add release assets ([3a76193](https://github.com/autero1/action-terragrunt/commit/3a76193b51ee86b2d323f3e8af9a1a778bd805e2))
+* add release assets ([393ac34](https://github.com/autero1/action-terragrunt/commit/393ac341d39571e7dc22a18f04d80005b47cd2d5))
+* add release assets ([c53f921](https://github.com/autero1/action-terragrunt/commit/c53f921686ba808ddcb498879db5c842ee337f04))
+* add release assets ([cad37c7](https://github.com/autero1/action-terragrunt/commit/cad37c7dc4ca97e8647320457fcbea74f32042ba))
+* **build:** add release assets PR creation ([#365](https://github.com/autero1/action-terragrunt/issues/365)) ([24242c3](https://github.com/autero1/action-terragrunt/commit/24242c3c1939ffeede02edc8f798c4f5158df72a))
+* **deps:** update dependency @types/node to v20.11.20 ([#363](https://github.com/autero1/action-terragrunt/issues/363)) ([71fb2ea](https://github.com/autero1/action-terragrunt/commit/71fb2eafa29729c9e3c006cb83536e64d80d26c2))
+* **deps:** update dependency node to v20.11.1 ([#356](https://github.com/autero1/action-terragrunt/issues/356)) ([870bacd](https://github.com/autero1/action-terragrunt/commit/870bacd3fd0dffc17f5f3936549b0ce77f307f96))
+* **deps:** update typescript-eslint monorepo to v7.0.2 ([#361](https://github.com/autero1/action-terragrunt/issues/361)) ([1dc625a](https://github.com/autero1/action-terragrunt/commit/1dc625a2683c48a6e34d6f30f9dd6275cb650823))
+
 ## [3.0.1](https://github.com/autero1/action-terragrunt/compare/v3.0.0...v3.0.1) (2024-02-19)
 
 
