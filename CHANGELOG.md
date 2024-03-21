@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.3](https://github.com/autero1/action-terragrunt/compare/v3.0.2...v3.0.3) (2024-03-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node to v20.11.30 ([#370](https://github.com/autero1/action-terragrunt/issues/370)) ([69681ba](https://github.com/autero1/action-terragrunt/commit/69681bae7394f0a57e0d005a7de18d01b62026e3))
+* **deps:** update dependency eslint to v8.57.0 ([#367](https://github.com/autero1/action-terragrunt/issues/367)) ([8d71cca](https://github.com/autero1/action-terragrunt/commit/8d71ccaf73e6c82099b14ddc68495e7c0dcab76e))
+* **deps:** update dependency got to v14.2.1 ([#372](https://github.com/autero1/action-terragrunt/issues/372)) ([bef8207](https://github.com/autero1/action-terragrunt/commit/bef8207357414270f0539f817a767eb01d25350f))
+* **deps:** update dependency typescript to v5.4.2 ([#371](https://github.com/autero1/action-terragrunt/issues/371)) ([61d3303](https://github.com/autero1/action-terragrunt/commit/61d33036a2a06c4a0404442a105d8eddd536e322))
+* **deps:** update dependency typescript to v5.4.3 ([#374](https://github.com/autero1/action-terragrunt/issues/374)) ([74740e6](https://github.com/autero1/action-terragrunt/commit/74740e6fbc585ea4ec7f3e73b5004d7035c4eae3))
+* **deps:** update typescript-eslint monorepo to v7.3.1 ([#369](https://github.com/autero1/action-terragrunt/issues/369)) ([db9d7dc](https://github.com/autero1/action-terragrunt/commit/db9d7dcbc845e628589cef94befb381928ab1cb4))
+
 ## [3.0.2](https://github.com/autero1/action-terragrunt/compare/v3.0.1...v3.0.2) (2024-02-23)
 
 
