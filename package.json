@@ -58,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
     "@vercel/ncc": "^0.38.1",
-    "eslint": "^8.56.0",
+    "eslint": "^9.0.0",
     "glob": "^10.3.10",
     "got": "^14.2.0",
     "husky": "^9.0.11",
