@@ -46,7 +46,7 @@ jobs:
         echo "${DIFF}" >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - name: Create PR with lib
-      uses: peter-evans/create-pull-request@v6
+      uses: peter-evans/create-pull-request@v7
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: Build lib
