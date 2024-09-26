@@ -5,7 +5,7 @@ on:
 
 jobs:
   test-release-version:
-    runs-on: "ubuntu-22.04"
+    runs-on: "ubuntu-24.04"
     steps:
       - uses: autero1/action-terragrunt@v3
         with:
