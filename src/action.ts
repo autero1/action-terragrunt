@@ -20,9 +20,6 @@ export function getExecutableExtension(): string {
 
 export function getArchName(): string {
   switch (os.arch()) {
-    case 'x32':
-      return '386';
-
     case 'x64':
       return 'amd64';
 
